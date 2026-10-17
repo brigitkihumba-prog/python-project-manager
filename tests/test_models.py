@@ -64,34 +64,26 @@ class TestProjectManagerModels(unittest.TestCase):
     def test_task_rejects_empty_title(self):
         with self.assertRaises(ValueError):
             Task("")
-
-
 def test_save_and_load_data(self):
         original_data_file = __import__(
             "utils.storage", fromlist=["DATA_FILE"]
         ).DATA_FILE
-
         try:
             with tempfile.TemporaryDirectory() as temp_dir:
                 import utils.storage as storage
-
                 storage.DATA_FILE = os.path.join(
                     temp_dir, "projects.json"
                 )
-
                 test_data = {
                     "users": [{"name": "Jane", "email": "jane@example.com"}],
                     "projects": [],
                     "tasks": []
                 }
-
                 save_data(test_data)
                 loaded_data = load_data()
-
                 self.assertEqual(loaded_data, test_data)
         finally:
             import utils.storage as storage
-            storage.DATA_FILE = original_data_file
-            
+            storage.DATA_FILE = original_data_file         
 if __name__ == "__main__":
     unittest.main()

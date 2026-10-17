@@ -10,8 +10,6 @@ DATA_FILE = os.path.join(
     "projects.json"
 
 )
-
-# Loads saved data or creates empty collections
 def load_data():
     try:
         with open(DATA_FILE, "r") as file:
@@ -24,7 +22,7 @@ def load_data():
             "tasks": []
         }
 
-# Saves data to the JSON file
+
 def save_data(data):
 
     os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
