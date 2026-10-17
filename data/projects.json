@@ -1,5 +1,24 @@
 {
-    "users": [],
-    "projects": [],
+    "users": [
+        {
+            "name": "Jane Doe",
+            "email": "jane@example.com"
+        }
+    ],
+    "projects": [
+        {
+            "title": "Website Project",
+            "description": "Create a website",
+            "due_date": "2026-12-31",
+            "owner": "Jane Doe",
+            "tasks": [
+                {
+                    "title": "Create homepage",
+                    "status": "Complete",
+                    "assigned_to": "Jane Doe"
+                }
+            ]
+        }
+    ],
     "tasks": []
 }

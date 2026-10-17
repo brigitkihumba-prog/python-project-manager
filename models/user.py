@@ -1,18 +1,22 @@
-# Import the person class from person.py
+# Import Person so User can inherit its features
 from models.person import Person
 
-# Represent a user in the project management system. A user is a person who can create and manage projects and tasks.
-class User(Person):
 
-# Create a new user with the given name, email.    
+# Represents a user in the project management system
+class User(Person):
+    # Shared class attribute for counting created users
+    user_count = 0
+
+    # Creates a user with a name and email
     def __init__(self, name, email):
         super().__init__(name, email)
-        self.projects = []  # List of projects created by the user
+        self.projects = []
+        User.user_count += 1
 
-# Add a project to the user's list of projects
+    # Adds a project to this user's list
     def add_project(self, project):
-        self.projects.append(project)        
+        self.projects.append(project)
 
-#Returns the user's name and number of projects.
+    # Returns the user's name and project count
     def __str__(self):
         return f"{self.name} - {len(self.projects)} project(s)"
